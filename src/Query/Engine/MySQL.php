@@ -11,17 +11,18 @@ use RsORM\Query\Engine\MySQL\Statement;
 class MySQL {
     
     /**
-     * @param Clause\Fields $fields
+     * @param Clause\Objects $objects
      * @param Clause\From $table
      * @param Clause\Filter $filter
      * @param Clause\Group $group
      * @param Clause\Having $having
      * @param Clause\Order $order
      * @param Clause\Limit $limit
+     * @param Clause\Flags $flags
      * @return Statement\Select
      */
-    public function select(Clause\Fields $fields, Clause\From $table = null, Clause\Filter $filter = null, Clause\Group $group = null, Clause\Having $having = null, Clause\Order $order = null, Clause\Limit $limit = null) {
-        return new Statement\Select($fields, $table, $filter, $group, $having, $order, $limit);
+    public function select(Clause\Objects $objects, Clause\From $table = null, Clause\Filter $filter = null, Clause\Group $group = null, Clause\Having $having = null, Clause\Order $order = null, Clause\Limit $limit = null, Clause\Flags $flags = null) {
+        return new Statement\Select($objects, $table, $filter, $group, $having, $order, $limit, $flags);
     }
     
     /**

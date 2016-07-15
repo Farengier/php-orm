@@ -14,10 +14,10 @@ class FieldsTest extends RsORMTest\Base {
 
     public function test() {
         $fields = new Clause\Fields([
-            new Argument\Field(new Argument\Column("id")),
-            new Argument\Field(new Argument\Column("name2"), new Argument\Alias("last_name")),
+            new Argument\Column("id"),
+            new Argument\Column("name"),
         ]);
-        $this->assertSame("`id`, `name2` AS `last_name`", $fields->prepare());
+        $this->assertSame("(`id`, `name`)", $fields->prepare());
         $this->assertSame([], $fields->values());
     }
     
