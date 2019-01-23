@@ -21,7 +21,7 @@ class Fields extends AbstractClause {
      * @return string
      */
     public function prepare() {
-        return implode(", ", $this->_prepareArguments());
+        return "(" . implode(", ", $this->_prepareArguments()) . ")";
     }
     
 }

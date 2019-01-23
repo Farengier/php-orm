@@ -6,15 +6,13 @@
 
 namespace RsORM\Query\Engine\MySQL\Clause;
 
-use RsORM\Query\Engine\MySQL\Argument;
+use RsORM\Query\Engine\MySQL;
 
-class InsertFields extends Fields {
-    
+class Objects extends AbstractClause {
     /**
      * @return string
      */
     public function prepare() {
-        return "(" . parent::prepare() . ")";
+        return implode(', ', $this->_prepareArguments());
     }
-    
 }
